@@ -19,21 +19,36 @@ onMounted(() => {
 
 const textToDisplay = "Gra składa się z dwóch poziomów – łatwego i trudnego." +
   " Rzucasz kostką i posuwasz się do przodu o tyle pól, ile oczek wyrzuciła kostka." +
-  "Na początku gry otrzymujesz trzy szanse."
+  " Na początku gry otrzymujesz trzy szanse."
 
 const textToDisplay2 = "– na polach oznaczonych znakiem zapytania czeka Cię pytanie."
 
-const textToDisplay3 = "– na polach oznaczonych znakiem wykrzyknika  czekają Cię zasadzki." +
-  "Każda błędna odpowiedź – to strata 1 szansy." +
-  "Utrata wszystkich szans oznacza zakończenie gry. Dobra odpowiedź – to kolejny rzut kostką." +
-  "Powodzenia!"
+const textToDisplay3 = "– na polach oznaczonych znakiem wykrzyknika  czekają Cię zasadzki." 
+
+
+const textToDisplay4 =   "Każda błędna odpowiedź – to strata 1 szansy." +
+  " Utrata wszystkich szans oznacza zakończenie gry. Dobra odpowiedź – to kolejny rzut kostką."
+
+const textToDisplay5 =  "Powodzenia!"
 </script>
 <template>
   <div class="tlo1" aria-label="Zasady gry">
     <div class="container">
       <div class="info-instrukcja" ref="info-instrukcja" tabindex="0">
-
+            <h1 class="instrukcja-title">Zasady gry</h1>
+         <div class="container-instrukcja">
+           <span class="instrukcja" v-html="textToDisplay"></span>
+          <div class="icon-text">
+            <img class="pytajnik" alt="" src="../assets/znak_zapytania_do_instrukcji.png" />
+            <span class="instrukcja" v-html="textToDisplay2"></span>
+          </div>
+          <img class="wykrzyknik" alt="" src="../assets/wykrzyknik_do_instrukcji.png" />
+          <span class="instrukcja" v-html="textToDisplay3"></span>
+          <p class="instrukcja instrukcja-par1" v-html="textToDisplay4"></p>
+          <p class="instrukcja instrukcja-par2" v-html="textToDisplay5"></p>
+         </div>
       </div>
+    
     </div>
       <button class="dalej my-button anim1" @click="$emit('koniec-instrukcja')" @keydown.enter="$emit('koniec-instrukcja-focus')"
     role="button">Dalej</button>
@@ -65,13 +80,87 @@ const textToDisplay3 = "– na polach oznaczonych znakiem wykrzyknika  czekają 
 }
 
 .info-instrukcja {
-  height: 750px;
+  height: 760px;
   width: 910px;
   top: 40px;
   left: 40px;
   position: absolute;
-  border: 4px solid rgb(0, 0, 0);
+  overflow: visible;
+  border: 2px solid transparent;
+}
 
+.info-instrukcja:focus{
+   border: 2px solid black;
+}
+
+.container-instrukcja{
+    display: inline-block;
+  padding: .5rem 1rem;
+  /* width: 1300px; */
+  /* height: 565px;
+  width: 1400px; */
+  overflow: auto;
+}
+
+.instrukcja-title {
+  /* position: absolute; */
+  color: rgb(0, 0, 0);
+  font-size: 5em;
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Proxima Nova", sans-serif;
+  margin: 0px;
+  text-align: center;
+  /* line-height: 1.5; */
+  /* top: 5px;
+  left: 705px; */
+}
+
+.icon-text {
+  display: block
+}
+
+.instrukcja {
+  color: rgb(0, 0, 0);
+  /* font-size: 41px; */
+  font-size: 2em;
+  font-style: normal;
+  font-weight: 300;
+  font-family: "Proxima Nova", sans-serif;
+  line-height: 1.7;
+  position: relative;
+  /* display: block; */
+}
+
+.pytajnik {
+  position: relative;
+  /* top: 283px;
+  left: 355px; */
+  margin-top: .8em;
+  margin-bottom: -1.2em;
+  margin-right: 1em;
+  /* left: -90px;
+  top: 35px */
+}
+
+.wykrzyknik {
+  position: relative;
+  /* top: 475px;
+  left: 715px; */
+  margin-top: .8em;
+  margin-bottom: -1.2em;
+  margin-right: 1em;
+
+}
+
+.instrukcja-par1{
+  margin-top: .6em;
+  margin-bottom: 0em;
+}
+
+.instrukcja-par2{
+    margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 .dalej {
