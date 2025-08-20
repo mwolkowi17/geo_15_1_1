@@ -7,10 +7,7 @@ ifButtonOnFocusLevelOne: Boolean
 });
 
 onMounted(() => {
-    const elementToFocus = document.querySelector(".level-one-button")
-    if (elementToFocus&&props.ifButtonOnFocusLevelOne===true) {
-        elementToFocus.focus();
-    }
+   
 
 })
 </script>
