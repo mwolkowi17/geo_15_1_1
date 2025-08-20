@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import ScenaStart from './ScenaStart.vue'
+import SceneStart from './SceneStart.vue'
 
 const if_plansza_poczatkowa = ref(true)
 
@@ -26,7 +26,7 @@ function changeFocusOn() {
 <template>
     <main>
         <div>
-        <ScenaStart v-if="if_plansza_poczatkowa" @koniec-planszy="change()" @instrukcja-focus="changeFocusOn" />
+        <SceneStart v-if="if_plansza_poczatkowa" @koniec-planszy="change()" @instrukcja-focus="changeFocusOn" />
         </div>
     </main>
 </template>
