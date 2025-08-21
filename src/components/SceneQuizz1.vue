@@ -268,12 +268,12 @@ const pytanieToDisplay = (miejsce) => {
 <style scoped>
 .planszaQuizz1 {
 
-  background-size: 1411px 896px;
+  background-size: 1346px 877px;
   background-repeat: no-repeat;
-  height: 896px;
-  width: 1411px;
+  height: 877px;
+  width: 1346px;
   position: absolute;
-  left: 0px;
+  left: 40px;
   top: 100px;
 }
 
@@ -290,43 +290,43 @@ const pytanieToDisplay = (miejsce) => {
 }
 
 .planszaQuizz1nr1 {
-  background-image: url("../assets/pytanie_puste.png");
+  background-image: url("../assets/plansza_pod_pytanie.png");
 }
 
 .planszaQuizz1nr2 {
-  background-image: url("../assets/pytanie_puste.png");
+  background-image: url("../assets/plansza_pod_pytanie.png");
 }
 
 .planszaQuizz1nr3 {
-  background-image: url("../assets/pytanie_puste.png");
+  background-image: url("../assets/plansza_pod_pytanie.png");
 }
 
 .planszaQuizz1nr4 {
-  background-image: url("../assets/pytanie_puste.png");
+  background-image: url("../assets/plansza_pod_pytanie.png");
 }
 
 .planszaQuizz1nr5 {
-  background-image: url("../assets/pytanie_puste.png");
+  background-image: url("../assets/plansza_pod_pytanie.png");
 }
 
 .planszaQuizz1nr6 {
-  background-image: url("../assets/pytanie_puste.png");
+  background-image: url("../assets/plansza_pod_pytanie.png");
 }
 
 .planszaQuizz1nr7 {
-  background-image: url("../assets/pytanie_puste.png");
+  background-image: url("../assets/plansza_pod_pytanie.png");
 }
 
 .planszaQuizz1nr8 {
-  background-image: url("../assets/pytanie_puste.png");
+  background-image: url("../assets/plansza_pod_pytanie.png");
 }
 
 .planszaQuizz1nr9 {
-  background-image: url("../assets/pytanie_puste.png");
+  background-image: url("../assets/plansza_pod_pytanie.png");
 }
 
 .planszaQuizz1nr10 {
-  background-image: url("../assets/pytanie_puste.png");
+  background-image: url("../assets/plansza_pod_pytanie.png");
 }
 
 
@@ -442,14 +442,15 @@ li {
 
 
 .krzyzyk {
-  background-image: url("../assets/krzyzyk1.png");
+  background-image: url("../assets/krzyzyk_odp.png");
   background-size: 73px 73px;
   background-repeat: no-repeat;
   height: 73px;
   width: 73px;
+  /* background-color: white; */
   position: absolute;
   visibility: hidden;
-  z-index: 1;
+  z-index: 3;
 }
 
 .krzyzyk1 {
@@ -476,14 +477,13 @@ li {
 }
 
 .button-dalej {
-  background-image: url("../assets/sprawdz_odpwowiedz_button1.png");
+  background-color: rgb(29, 56, 80);
+    border-radius: 30px;
   color: rgb(255, 255, 255);
   font-size: 37px;
   font-style: bold;
   font-weight: 500;
   font-family: "Proxima Nova", sans-serif;
-  background-size: 394px 87px;
-  background-repeat: no-repeat;
   top: 760px;
   left: 300px;
   height: 87px;
@@ -503,7 +503,7 @@ li {
 }
 
 .plansza-dobrze {
-  background-image: url("../assets/KOMUNIKAT_dobra_odp.png");
+  background-image: url("../assets/plansza_dobra_odp.png");
   background-size: 1212px 533px;
   background-repeat: no-repeat;
   height: 533px;
@@ -526,7 +526,7 @@ li {
 }
 
 .plansza-zle {
-  background-image: url("../assets/KOMUNIKAT_zla_odp.png");
+  background-image: url("../assets/plansza_zla_odp.png");
   background-size: 1212px 533px;
   background-repeat: no-repeat;
   height: 533px;
@@ -590,6 +590,8 @@ li {
   background-size: 301px 117px;
   background-position: -2px -1px;
   background-repeat: no-repeat;
+  border-radius: 25px;
+  border: 4px solid rgb(0, 0, 0);
   top: 630px;
   left: 535px;
   height: 117px;

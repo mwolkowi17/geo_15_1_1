@@ -106,6 +106,7 @@ function koniecPulapki() {
   background-size: 301px 117px;
   background-position: -1px -2px;
   background-repeat: no-repeat;
+  border-radius: 25px;
   height: 117px;
   width: 301px;
   position: absolute;
