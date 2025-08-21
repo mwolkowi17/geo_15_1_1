@@ -44,7 +44,7 @@ function koniecPulapki() {
 </template>
 <style scoped>
 .pulapka1 {
-  background-image: url("../assets/zasadzka.png");
+  background-image: url("../assets/plansza_zasadzka.png");
   background-size: 1212px 533px;
   background-repeat: no-repeat;
   height: 533px;

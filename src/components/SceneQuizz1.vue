@@ -194,7 +194,7 @@ const pytanieToDisplay = (miejsce) => {
     role="img" alt="tło" aria-label="pytanie">
     <h1 class="sr-only">Quizz</h1>
   </div>
-  <div class="pytanie1" ref="pytanie1" v-html="pytanieToDisplay(props.miejsceNaPlanszy)" tabindex="0"></div>
+  <p class="pytanie1" ref="pytanie1" v-html="pytanieToDisplay(props.miejsceNaPlanszy)" tabindex="0"></p>
 
   <!-- <ul class="lista-odpowiedzi" role="presentation"> -->
   <ul class="lista-odpowiedzi" role="list">
@@ -340,8 +340,8 @@ const pytanieToDisplay = (miejsce) => {
   font-family: "Proxima Nova", sans-serif;
   white-space: nowrap;
   position: absolute;
-  top: 332px;
-  left: 205px;
+  top: 230px;
+  left: 215px;
   padding: 20px;
   display: inline-block;
 }
