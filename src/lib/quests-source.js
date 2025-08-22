@@ -18,109 +18,148 @@ export class Quests {
         id: 1,
         pytanie: 0,
         odpowiedz_text: [
-          ["bezpieczne", "niebezpieczne", 1],
-          ["niebezpieczne", "bezpieczne", 2],
+          [
+            "Unia Europejska (UE)",
+            "Organizacja Narodów Zjednoczonych (ONZ)",
+            1,
+          ],
+          [
+            "Organizacja Narodów Zjednoczonych (ONZ)",
+            "Unia Europejska (UE)",
+            2,
+          ],
         ],
         odpowiedz: 1,
-        tresc: "Symbol kłódki",
+        tresc:
+          "Widzisz flagę organizacji, która rozwija ideę wspólnej Europy. Nazwa tej organizacji to:",
       },
       {
         id: 2,
         pytanie: 1,
         odpowiedz_text: [
-          ["informacje", "paczki", 1],
-          ["paczki", "informacje", 2],
+          [
+            "Organizacja Narodów Zjednoczonych (ONZ)",
+            "Organizacja Współpracy Gospodarczej i Rozwoju (OECD)",
+            1,
+          ],
+          [
+            "Organizacja Współpracy Gospodarczej i Rozwoju (OECD)",
+            "Organizacja Narodów Zjednoczonych (ONZ)",
+            2,
+          ],
         ],
         odpowiedz: 1,
-        tresc: "Internetem można przesyłać:",
+        tresc:
+          "Widzisz flagę organizacji, która walczy o pokój i prawa ludzi. Nazwa tej organizacji to:",
       },
       {
         id: 4,
         pytanie: 2,
         odpowiedz_text: [
-          ["zamknięta", "otwarta", 1],
-          ["otwarta", "zamknięta", 2],
+          [
+            "Organizacja Traktatu Północnoatlantyckiego (NATO)",
+            "Unia Europejska (UE)",
+            1,
+          ],
+          [
+            "Unia Europejska (UE)",
+            "Organizacja Traktatu Północnoatlantyckiego (NATO)",
+            2,
+          ],
         ],
         odpowiedz: 1,
-        tresc: "Bezpieczne połączenie Wi-Fi to sieć:",
+        tresc:
+          "Widzisz flagę organizacji, która ma charakter militarny. Nazwa tej organizacji to:",
       },
       {
         id: 5,
         pytanie: 3,
         odpowiedz_text: [
-          [
-            "indywidualnie - każda osoba ma swój",
-            "grupowo - wszyscy uczniowie mają swoje",
-            1,
-          ],
-          [
-            "grupowo - wszyscy uczniowie mają swoje",
-            "indywidualnie - każda osoba ma swój",
-            2,
-          ],
+          ["UNICEF", " WHO", 1],
+          [" WHO", "UNICEF", 2],
         ],
         odpowiedz: 1,
-        tresc: "Login ustala się:",
+        tresc:
+          "Widzisz flagę organizacji, która pomaga dzieciom na świecie. Nazwa tej organizacji to:",
       },
       {
         id: 7,
         pytanie: 4,
         odpowiedz_text: [
-          ["emocje", "anonimowość", 1],
-          ["anonimowość", "emocje", 2],
+          ["od 2004 roku", "od 1999 roku", 1],
+          ["od 1999 roku", "od 2004 roku", 2],
         ],
         odpowiedz: 1,
-        tresc: "Emotka uśmiechniętej buźki",
+        tresc: "Od którego roku Polska jest członkiem Unii Europejskiej?",
       },
       {
         id: 9,
         pytanie: 5,
         odpowiedz_text: [
-          ["powinno być zmieniane często", "zawsze powinno być takie samo", 1],
-          ["zawsze powinno być takie samo", "powinno być zmieniane często", 2],
+          ["od 1945 roku", "od 2000 roku", 1],
+          ["od 2000 roku", "od 1945 roku", 2],
         ],
         odpowiedz: 1,
-        tresc: "Hasło:",
+        tresc:
+          "Od którego roku Polska należy do Organizacji Narodów Zjednoczonych (ONZ)?",
       },
       {
         id: 10,
         pytanie: 6,
         odpowiedz_text: [
-          ["mailowym", "strony internetowej", 1],
-          ["strony internetowej", "mailowym", 2],
+          [
+            "Organizacja Współpracy Gospodarczej i Rozwoju (OECD)",
+            "Organizacja Traktatu Północnoatlantyckiego (NATO)",
+            1,
+          ],
+          [
+            "Organizacja Traktatu Północnoatlantyckiego (NATO)",
+            "Organizacja Współpracy Gospodarczej i Rozwoju (OECD)",
+            2,
+          ],
         ],
         odpowiedz: 1,
-        tresc: "Symbolu małpy",
+        tresc:
+          "Jak nazywa się organizacja, która wspiera innowacje technologiczne?",
       },
       {
         id: 12,
         pytanie: 7,
         odpowiedz_text: [
-          ["małpę", "węża", 1],
-          ["węża", "małpę", 2],
+          ["tak", "nie", 1],
+          ["nie", "tak", 2],
         ],
         odpowiedz: 1,
-        tresc: "W Polsce symbol",
+        tresc: "Czy Polska należy do wielu organizacji międzynarodowych?",
       },
       {
         id: 13,
         pytanie: 8,
         odpowiedz_text: [
-          ["komputery", "ludzi", 1],
-          ["ludzi", "komputery", 2],
+          ["tak", "nie", 1],
+          ["nie", "tak", 2],
         ],
         odpowiedz: 1,
-        tresc: "Sieć Wi-Fi łączy bezprzewodowo:",
+        tresc: "Czy Polska aktywnie działa na rzecz pokoju w Europie?",
       },
       {
         id: 15,
         pytanie: 9,
         odpowiedz_text: [
-          ["udostępniasz innym", "nie udostępniasz innym", 2],
-          ["nie udostępniasz innym", "udostępniasz innym", 1],
+          [
+            "jedności i solidarności między krajami członkowskimi",
+            "liczby krajów członkowskich",
+            1,
+          ],
+          [
+            "liczby krajów członkowskich",
+            "jedności i solidarności między krajami członkowskimi",
+            2,
+          ],
         ],
         odpowiedz: 2,
-        tresc: "Swój login i hasło:",
+        tresc:
+          "Czego symbolem są gwiazdy, które znajdują się na fladze Unii Europejskiej (UE)?",
       },
     ];
   }

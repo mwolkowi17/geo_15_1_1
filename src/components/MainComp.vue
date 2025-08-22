@@ -5,10 +5,10 @@ import SceneLevelOneChoise from './SceneLevelOneChoise.vue'
 import SceneInstruction from './SceneInstruction.vue'
 import SceneMain1 from './SceneMain1.vue';
 
-const if_plansza_poczatkowa = ref(false)
+const if_plansza_poczatkowa = ref(true)
 const if_instrukcja = ref(false)
 const if_level_one_choise = ref(false)
-const if_main1 = ref(true)
+const if_main1 = ref(false)
 
 
 //flagi sterujące focusem w komponentach

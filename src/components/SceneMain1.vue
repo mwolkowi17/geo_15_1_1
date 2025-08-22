@@ -37,10 +37,10 @@ onMounted(() => {
 const postac1 = ref("postać")
 
 //pozycja startowa gracza nr 1
-//const krok_gracz1_na_planszy = ref(0);
+const krok_gracz1_na_planszy = ref(0);
 
 //roboczo do edycji pytań
-const krok_gracz1_na_planszy = ref(2);
+//const krok_gracz1_na_planszy = ref(5);
 
 //zdefinowanie pozycji (mapy wszystkich pozycji) gracza nr 1
 const pozycje_pionka_gracza1 = new PawnMaps().pionek_gracza1;
@@ -61,9 +61,9 @@ const if_widok_kostki = ref(false);
 const if_widok_pulapki = ref(false)
 
 //widoczność planszy quizz1
-//const if_widok_quizz1 = ref(false);
+const if_widok_quizz1 = ref(false);
 //roboczo do edycji pytań
-const if_widok_quizz1 = ref(true);
+//const if_widok_quizz1 = ref(true);
 
 //widoki szans na planszy
 
@@ -627,7 +627,7 @@ function clickWithFocus() {
 }
 
 .ruch1:focus {
-    outline: 5px solid #9a009e;
+    outline: 5px solid #e90808;
 }
 
 .ruch-text {
@@ -677,6 +677,10 @@ function clickWithFocus() {
     top: 500px;
     left: 1487px;
     z-index: 2;
+}
+
+.rzut1:focus{
+     outline: 5px solid #e90808;
 }
 
 .kostka {

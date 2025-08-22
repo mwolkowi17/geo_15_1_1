@@ -123,12 +123,12 @@ async function sprawdzOdpowiedz() {
     // }
     await nextTick()
 
-    
-    
+
+
     console.log(odpowiedzWidok.value)
-  
-    
-    if(odpowiedzWidok&&ifButtonKoniecQuizzuOnFocus.value===true){
+
+
+    if (odpowiedzWidok && ifButtonKoniecQuizzuOnFocus.value === true) {
       odpowiedzWidok.value.focus()
     }
   } else {
@@ -150,40 +150,37 @@ async function sprawdzOdpowiedz() {
     // if (ifButtonKoniecQuizzuOnFocus.value === true) {
     //   buttonVis2.then((res) => { res.focus() })
     // }
-     await nextTick()
-      console.log(odpowiedzWidok.value)
-  
-    
-    if(odpowiedzWidok&&ifButtonKoniecQuizzuOnFocus.value===true){
+    await nextTick()
+    console.log(odpowiedzWidok.value)
+
+
+    if (odpowiedzWidok && ifButtonKoniecQuizzuOnFocus.value === true) {
       odpowiedzWidok.value.focus()
     }
   }
 }
 
-const klodka1image = new URL('../assets/klodka1.png', import.meta.url).href
-const buzka1image = new URL('../assets/buzka1.png', import.meta.url).href
-const malpa1image = new URL('../assets/malpa1.png', import.meta.url).href
+const flagaUni = new URL('../assets/UE_flaga.png', import.meta.url).href
+const flagaOnz = new URL('../assets/ONZ_flaga.png', import.meta.url).href
+const flagaNato = new URL('../assets/NATO_flaga.png', import.meta.url).href
+const flagaUnicef = new URL('../assets/UNICEF_flaga.png', import.meta.url).href
 
 const pytanieToDisplay = (miejsce) => {
   let textToDisplayPytanie
   if (miejsce === 1) {
-    textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='klodka2' src=" + klodka1image + ">"
-      + "<span>oznacza połączenie:</span>"
+    textToDisplayPytanie = "<p>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</p>" + "<img class='flaga-uni' src=" + flagaUni + ">"
   }
-  else if (miejsce === 7) {
-    textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='buzka2' src=" + buzka1image + ">"
-      + "<span>wyraża:</span>"
+  else if (miejsce === 2) {
+    textToDisplayPytanie = "<p>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</p>" + "<img class='flaga-onz' src=" + flagaOnz + ">"
   }
-  else if (miejsce === 10) {
-    textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='malpa2' src=" + malpa1image + ">"
-      + "<span>używa się w adresie:</span>"
+  else if (miejsce === 4) {
+    textToDisplayPytanie = "<p>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</p>" + "<img class='flaga-nato' src=" + flagaNato + ">"
   }
-  else if (miejsce === 12) {
-    textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>" + "<img class='malpa3' src=" + malpa1image + " aria-label='małpa'>"
-      + "<span>oznacza:</span>"
+  else if (miejsce === 5) {
+    textToDisplayPytanie = "<p>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</p>" + "<img class='flaga-unicef' src=" + flagaUnicef + ">"
   }
   else {
-    textToDisplayPytanie = "<span>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</span>"
+    textToDisplayPytanie = "<p>" + quizz_assets_data.pokaz_zadanie_2(miejsce).tresc + "</p>"
   }
   return textToDisplayPytanie
 }
@@ -193,49 +190,54 @@ const pytanieToDisplay = (miejsce) => {
   <div class="planszaQuizz1 " :class="eksp1[quizz_assets_data.pokaz_zadanie_2(props.miejsceNaPlanszy).pytanie]"
     role="img" alt="tło" aria-label="pytanie">
     <h1 class="sr-only">Quizz</h1>
-  </div>
-  <p class="pytanie1" ref="pytanie1" v-html="pytanieToDisplay(props.miejsceNaPlanszy)" tabindex="0"></p>
+    <div class="pytanie1" ref="pytanie1" v-html="pytanieToDisplay(props.miejsceNaPlanszy)" tabindex="0"></div>
 
-  <!-- <ul class="lista-odpowiedzi" role="presentation"> -->
-  <ul class="lista-odpowiedzi" role="list">
-    <li>
-      <!-- <div class="pojedyncza-odpowiedz" role="checkbox" tabindex="0" :aria-checked={zaznaczenieOdpowiedzi1}> -->
-      <div class="pojedyncza-odpowiedz" role="checkbox" tabindex="0" :aria-checked="zaznaczenieOdpowiedzi1" @click="is_krzyzyk1 = true,
-        is_krzyzyk2 = false,
-        if_button_dalej = true,
-        zaznaczenie1()" @keydown.enter="is_krzyzyk1 = true,
+    <!-- <ul class="lista-odpowiedzi" role="presentation"> -->
+    <ul class="lista-odpowiedzi" role="list">
+      <li>
+        <!-- <div class="pojedyncza-odpowiedz" role="checkbox" tabindex="0" :aria-checked={zaznaczenieOdpowiedzi1}> -->
+        <div class="pojedyncza-odpowiedz" role="checkbox" tabindex="0" :aria-checked="zaznaczenieOdpowiedzi1" @click="is_krzyzyk1 = true,
+          is_krzyzyk2 = false,
+          if_button_dalej = true,
+          zaznaczenie1()" @keydown.enter="is_krzyzyk1 = true,
           is_krzyzyk2 = false,
           if_button_dalej = true,
           zaznaczenie1()">
-        <span class="krzyzyk" :class="{ 'krzyzyk1': is_krzyzyk1, 'krzyzyk2': is_krzyzyk2 }"
-          alt="zaznaczenie odpowiedzi"></span>
-        <span class="pole-zazn anim1" aria-label="zaznacz odpowiedź 1"></span>
+        
+        <div class="pole-zazn anim1" aria-label="zaznacz odpowiedź 1">
+           <span class="krzyzyk" :class="{ 'krzyzyk1': is_krzyzyk1 }" alt="zaznaczenie odpowiedzi"></span>
+        </div>
 
-        <span class="odpowiedz anim1">{{
-          quizz_assets_data.pokaz_zadanie_2(props.miejsceNaPlanszy).odpowiedz_text[nr_zestawu][0] }}</span>
-      </div>
-    </li>
+          <span class="odpowiedz anim1">{{
+            quizz_assets_data.pokaz_zadanie_2(props.miejsceNaPlanszy).odpowiedz_text[nr_zestawu][0] }}</span>
+        </div>
+      </li>
 
-    <li>
-      <!-- <div class="pojedyncza-odpowiedz" role="checkbox" tabindex="0" :aria-checked={zaznaczenieOdpowiedzi1}> -->
-      <div class="pojedyncza-odpowiedz" role="checkbox" tabindex="0" :aria-checked="zaznaczenieOdpowiedzi2" @click="is_krzyzyk2 = true,
-        is_krzyzyk1 = false,
-        if_button_dalej = true,
-        zaznaczenie2()" @keydown.enter="is_krzyzyk2 = true,
+      <li>
+        <!-- <div class="pojedyncza-odpowiedz" role="checkbox" tabindex="0" :aria-checked={zaznaczenieOdpowiedzi1}> -->
+        <div class="pojedyncza-odpowiedz" role="checkbox" tabindex="0" :aria-checked="zaznaczenieOdpowiedzi2" @click="is_krzyzyk2 = true,
+          is_krzyzyk1 = false,
+          if_button_dalej = true,
+          zaznaczenie2()" @keydown.enter="is_krzyzyk2 = true,
           is_krzyzyk1 = false,
           if_button_dalej = true,
           zaznaczenie2()">
-        <span class="pole-zazn anim1" aria-label="zaznacz odpowiedź 2"></span>
-        <span class="odpowiedz anim1">{{
-          quizz_assets_data.pokaz_zadanie_2(props.miejsceNaPlanszy).odpowiedz_text[nr_zestawu][1] }}</span>
+          <div class="pole-zazn anim1" aria-label="zaznacz odpowiedź 2">
+             <span class="krzyzyk" :class="{ 'krzyzyk2': is_krzyzyk2 }" alt="zaznaczenie odpowiedzi"></span>
+          </div>
+          <span class="odpowiedz anim1">{{
+            quizz_assets_data.pokaz_zadanie_2(props.miejsceNaPlanszy).odpowiedz_text[nr_zestawu][1] }}</span>
 
-      </div>
-    </li>
-  </ul>
+        </div>
+      </li>
+    </ul>
 
-  <button class="button-dalej my-button" v-if="if_button_dalej" @click="sprawdzOdpowiedz()"
-    @keydown.enter="ifButtonKoniecQuizzuOnFocus = true; sprawdzOdpowiedz()" role="button" alt="przycisk sprawdź">Sprawdź
-    odpowiedź</button>
+    <button class="button-dalej my-button" v-if="if_button_dalej" @click="sprawdzOdpowiedz()"
+      @keydown.enter="ifButtonKoniecQuizzuOnFocus = true; sprawdzOdpowiedz()" role="button"
+      alt="przycisk sprawdź">Sprawdź
+      odpowiedź</button>
+  </div>
+
   <div class="plansza-dobrze" v-if="if_odpowiedz_dobrze">
     <div class="info" ref="info" tabindex="0">
       <p class="naglowek-after-quizz naglowek-dobrze">Brawo!</p>
@@ -275,6 +277,11 @@ const pytanieToDisplay = (miejsce) => {
   position: absolute;
   left: 40px;
   top: 100px;
+  display: block;
+  box-sizing: border-box;
+  padding-left: 180px;
+  padding-right: 80px;
+  padding-top: 130px;
 }
 
 .sr-only {
@@ -338,53 +345,51 @@ const pytanieToDisplay = (miejsce) => {
   font-style: bold;
   font-weight: 700;
   font-family: "Proxima Nova", sans-serif;
-  white-space: nowrap;
-  position: absolute;
-  top: 230px;
-  left: 215px;
-  padding: 20px;
-  display: inline-block;
+  /* white-space: nowrap; */
+  /* position: absolute; */
+  position: relative;
+  top: 0px;
+  left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* padding: 20px; */
+  /* display: inline-block; */
 }
 
 .pytanie1:focus {
   outline: 2px solid #000000 !important;
 }
 
-.pytanie1:deep(.klodka2) {
+.pytanie1:deep(.flaga-uni) {
   /* position:absolute;
    top: 3px;
    left: 294px;  */
   position: relative;
-  margin-right: .1em;
-  margin-left: .1em;
-  margin-top: -.3em;
-  margin-bottom: -.3em;
-}
-
-.pytanie1:deep(.buzka2) {
-  position: relative;
-  /* top: 2px;
-   left: 555px; */
-  margin-right: .2em;
-  margin-left: .2em;
-  margin-top: -.3em;
-  margin-bottom: -.7em;
+  width: 300px;
+  height: 180px;
+  margin-top: -5px;
 
 }
 
-.pytanie1:deep(.malpa2) {
-  position: relative;
-  /* left: 318px; */
-  margin-right: .2em;
-  margin-left: .2em;
-  margin-bottom: -.4em;
+.pytanie1:deep(.flaga-onz) {
+ position: relative;
+  width: 300px;
+  height: 180px;
+  margin-top: -5px;
 }
 
-.pytanie1:deep(.malpa3) {
-  position: relative;
-  margin-right: .2em;
-  margin-left: .2em;
-  margin-bottom: -.4em;
+.pytanie1:deep(.flaga-nato) {
+   position: relative;
+  width: 300px;
+  height: 180px;
+  margin-top: -5px;
+}
+
+.pytanie1:deep(.flaga-unicef) {
+   position: relative;
+  width: 300px;
+  height: 180px;
+  margin-top: -5px;
 
 }
 
@@ -392,6 +397,7 @@ ul {
   display: block;
   margin-block-start: 1em;
   margin-block-end: 1em;
+  padding-inline-start: 0px !important;
 }
 
 li {
@@ -399,7 +405,7 @@ li {
 }
 
 .lista-odpowiedzi {
-  position: absolute;
+
   left: 180px;
   top: 455px;
   list-style: none;
@@ -448,20 +454,23 @@ li {
   height: 73px;
   width: 73px;
   /* background-color: white; */
-  position: absolute;
+  /* position: absolute; */
   visibility: hidden;
+   display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 3;
 }
 
 .krzyzyk1 {
-  top: 15px;
-  left: 62px;
+  /* top: 15px;
+  left: 62px; */
   visibility: visible;
 }
 
 .krzyzyk2 {
-  top: 135px;
-  left: 62px;
+  /* top: 135px;
+  left: 62px; */
   visibility: visible;
 }
 
@@ -478,18 +487,19 @@ li {
 
 .button-dalej {
   background-color: rgb(29, 56, 80);
-    border-radius: 30px;
+  border-radius: 30px;
   color: rgb(255, 255, 255);
   font-size: 37px;
   font-style: bold;
   font-weight: 500;
   font-family: "Proxima Nova", sans-serif;
-  top: 760px;
-  left: 300px;
+  /* top: 760px;
+  left: 300px; */
   height: 87px;
   width: 394px;
-  position: absolute;
+ position: relative;
   z-index: 2;
+ 
 }
 
 .button-dalej:hover {
@@ -497,8 +507,6 @@ li {
 }
 
 .button-dalej:focus {
-  /* border: 4px solid #08e926; */
-  /* outline: thick double #08e926 !important; */
   outline: 5px solid #9a009e !important;
 }
 
