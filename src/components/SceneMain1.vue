@@ -40,7 +40,7 @@ const postac1 = ref("postać")
 const krok_gracz1_na_planszy = ref(0);
 
 //roboczo do edycji pytań
-//const krok_gracz1_na_planszy = ref(5);
+//const krok_gracz1_na_planszy = ref(1);
 
 //zdefinowanie pozycji (mapy wszystkich pozycji) gracza nr 1
 const pozycje_pionka_gracza1 = new PawnMaps().pionek_gracza1;
@@ -480,9 +480,9 @@ function clickWithFocus() {
         <h2 class="title">Poziom 1</h2>
         <h2 class="szanse-napis">szanse:</h2>
         <div class="szanse-container">
-            <img class="szansa" src="../assets/szansa.png">
-            <img class="szansa" src="../assets/szansa.png">
-            <img class="szansa" src="../assets/szansa.png">
+            <img class="szansa" v-if="if_szansa1" src="../assets/szansa.png">
+            <img class="szansa" v-if="if_szansa2" src="../assets/szansa.png">
+            <img class="szansa" v-if="if_szansa3" src="../assets/szansa.png">
         </div>
         <div class="ruch1" ref="ruchGracza" v-if="if_ruch_gracza" tabindex="0">
             <p class="ruch-text">Ruch gracza</p>

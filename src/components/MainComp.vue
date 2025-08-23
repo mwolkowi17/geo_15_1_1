@@ -4,11 +4,13 @@ import SceneStart from './SceneStart.vue'
 import SceneLevelOneChoise from './SceneLevelOneChoise.vue'
 import SceneInstruction from './SceneInstruction.vue'
 import SceneMain1 from './SceneMain1.vue';
+import SceneLooseAfterLevelOne from './SceneLooseAfterLevelOne.vue';
 
-const if_plansza_poczatkowa = ref(true)
+const if_plansza_poczatkowa = ref(false)
 const if_instrukcja = ref(false)
 const if_level_one_choise = ref(false)
-const if_main1 = ref(false)
+const if_main1 = ref(true)
+const if_loose_after_level_one = ref(true)
 
 
 //flagi sterujące focusem w komponentach
@@ -88,30 +90,30 @@ function koniec_etapu1_focus() {
     if (if_main1.value) {
         if_main1.value = true;
         //if_level_two_choise.value = true;
-         setTimeout(()=>{
-      if_end_scene_level_one.value = true;
-    })
+        setTimeout(() => {
+            if_end_scene_level_one.value = true;
+        })
 
     } else {
-        setTimeout(()=>{
-        ifWinFocusOn.value=true
-        if_win.value = true;
-         })
+        setTimeout(() => {
+            ifWinFocusOn.value = true
+            if_win.value = true;
+        })
     }
 }
 
 function loose_after_level_one() {
     ifLevelOneChoiseFocusOn.value = false
-    ifInFocusGlobal.value = false
+    //ifInFocusGlobal.value = false
     ifMain1FocusOn.value = false
-    setTimeout(() => {
+    setTimeout(() => { // let's check next tick
         if_loose_after_level_one.value = true;
     }, 500)
 
 }
 
 function loose_after_level_one_focus() {
-    ifInFocusGlobal.value = true
+    //ifInFocusGlobal.value = true
     ifLevelOneChoiseFocusOn.value = false
     ifMain1FocusOn.value = false
     setTimeout(() => {
@@ -133,6 +135,9 @@ function loose_after_level_one_focus() {
             <SceneMain1 v-if="if_main1" @koniec-etap1="koniec_etapu1" @koniec-etap1-focus="koniec_etapu1_focus"
                 @przegrana="loose_after_level_one" @przegrana-focus="loose_after_level_one_focus"
                 :ifButtonOnFocusMain1="ifMain1FocusOn" />
+            <SceneLooseAfterLevelOne v-if="if_loose_after_level_one" @jeszcze-raz="graj_jeszcze_raz_po_scenie1"
+                @jeszcze-raz-focus="graj_jeszcze_raz_po_scenie1_focus" @koniec-gry="koniec_gry"
+                :ifButtonOnFocus="ifInFocusGlobal" />
         </div>
     </main>
 </template>

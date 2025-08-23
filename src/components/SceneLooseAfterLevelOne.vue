@@ -33,12 +33,12 @@ przegrana_sound.play();
 
 <style scoped>
 .plansza-lose {
-    background-image: url("../assets/przegrana_plansza.png");
-    background-size: 1920px 1080px;
-    height: 1080px;
-    width: 1920px;
-    top: 0px;
-    left: 0px;
+    background-image: url("../assets/plansza_przegrales.png");
+    background-size: 1568px 912px;
+    height: 912px;
+    width: 1568px;
+    top: 100px;
+    left: 120px;
     position: absolute;
     z-index: 2;
 }
