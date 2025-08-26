@@ -2,7 +2,7 @@
 import { onMounted, useTemplateRef } from 'vue';
 
 const props = defineProps({
- ifButtonOnFocus: Boolean
+    ifButtonOnFocus: Boolean
 });
 
 const infoWin = useTemplateRef('info-win1')
@@ -15,7 +15,7 @@ onMounted(() => {
     infoWin.value.focus()
 })
 
-defineEmits(['gram-dalej','gram-dalej-focus', 'koniec-gry', 'koniec-gry-focus']);
+defineEmits(['gram-dalej', 'gram-dalej-focus', 'koniec-gry', 'koniec-gry-focus']);
 
 const fanfary = new Audio(new URL('../assets/fanfary.mp3', import.meta.url).href);
 fanfary.play();
@@ -24,37 +24,40 @@ fanfary.play();
 <template>
     <div class="plansza-win-level-one">
         <div class="info-win1" ref="info-win1" tabindex="0">
-        <h1 class="naglowek">Brawo!</h1>
-        <p class="napis">Udało Ci się ukończyć <b>Poziom 1,</b></p>
-        <p class="napis-2">chcesz grać dalej?</p>
+            <h1 class="naglowek">Brawo!</h1>
+            <p class="napis">Udało Ci się ukończyć <b>Poziom 1,</b></p>
+            <p class="napis-2">chcesz grać dalej?</p>
         </div>
+        <button class="gram-jeszcze-1-level-one my-button anim1" @click="$emit('gram-dalej')"
+            @keydown.enter="$emit('gram-dalej-focus')" role="button">Gram dalej</button>
+        <button class="zakoncz-gre my-button anim1" @click="$emit('koniec-gry')"
+            @keydown.enter="$emit('koniec-gry-focus')" role="button">Zakończ grę</button>
     </div>
-    <button class="gram-jeszcze-1-level-one my-button anim1" @click="$emit('gram-dalej')" @keydown.enter="$emit('gram-dalej-focus')" role="button">Gram dalej</button>
-    <button class="zakoncz-gre my-button anim1" @click="$emit('koniec-gry')" @keydown.enter="$emit('koniec-gry-focus')" role="button">Zakończ grę</button>
+
 
 </template>
 
 <style scoped>
 .plansza-win-level-one {
-    background-image: url("../assets/ukonczenie_poziomu1.png");
-    background-size: 1920px 1080px;
-    height: 1080px;
-    width: 1920px;
-    top: 0px;
-    left: 0px;
+    background-image: url("../assets/plansza_wygrales_ukonczyles_poziom.png");
+    background-size: 1568px 912px;
+    height: 912px;
+    width: 1568px;
+    top: 100px;
+    left: 120px;
     position: absolute;
     z-index: 2;
 }
 
-.info-win1{
+.info-win1 {
     position: absolute;
     height: 400px;
     width: 1200px;
-    top: 200px;
-    left:350px
+    top: 100px;
+    left: 185px
 }
 
-.info-win1:focus{
+.info-win1:focus {
     outline: 2px solid #ffffff;
 }
 
@@ -115,11 +118,12 @@ fanfary.play();
     background-position: -1px -1px;
     position: absolute;
     top: 650px;
-    left: 320px;
+    left: 165px;
     width: 583px;
-    height: 192px;
+    height: 120px;
     z-index: 3;
-    border: 4px solid rgb(0, 187, 255);
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 25px;
 }
 
 .gram-jeszcze-1-level-one:hover {
@@ -142,11 +146,12 @@ fanfary.play();
     background-position: -1px -1px;
     position: absolute;
     top: 650px;
-    left: 995px;
+    left: 820px;
     width: 583px;
-    height: 192px;
+    height: 120px;
     z-index: 3;
-    border: 4px solid rgb(0, 187, 255);
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 25px;
 }
 
 .zakoncz-gre:hover {
