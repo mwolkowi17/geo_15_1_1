@@ -40,22 +40,22 @@ fanfary.play();
 
 <style scoped>
 .plansza-win {
-    background-image: url("../assets/zakonczenie_gry_plansza.png");
-    background-size: 1920px 1080px;
-    height: 1080px;
-    width: 1920px;
-    top: 0px;
-    left: 0px;
+    background-image: url("../assets/plansza_wygrales_ukonczyles_poziom.png");
+    background-size: 1568px 912px;
+    height: 912px;
+    width: 1568px;
+    top: 100px;
+    left: 120px;
     position: absolute;
     z-index: 2;
 }
 
 .info-win2{
-    position: absolute;
+   position: absolute;
     height: 400px;
     width: 1200px;
-    top: 200px;
-    left:350px
+    top: 100px;
+    left: 185px
 }
 
 .info-win2:focus{
@@ -63,51 +63,53 @@ fanfary.play();
 }
 
 .naglowek{
-color: rgb(255, 255, 255);
-  font-size: 100px;
-  font-style: bold;
-  font-weight: 600;
-  font-family: "Proxima Nova", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 100px;
+    font-style: bold;
+    font-weight: 600;
+    font-family: "Proxima Nova", sans-serif;
+    margin-top: 60px;
     top: 0px;
     left: 280px;
-  height: 88px;
-  width: 333px;
-  position: absolute;
-  z-index: 2;
+    height: 88px;
+    width: 333px;
+    position: absolute;
+    z-index: 2;
  
 }
 
 .napis{
-color: rgb(255, 255, 255);
-  font-size: 70px;
-  font-style: bold;
-  font-weight: 400;
-  font-family: "Proxima Nova", sans-serif;
-  white-space: nowrap;
-  top: 180px;
-    left: 205px;
-  height: 88px;
-  width: 333px;
-  position: absolute;
-  z-index: 2;
+    color: rgb(255, 255, 255);
+    font-size: 70px;
+    font-style: bold;
+    font-weight: 400;
+    font-family: "Proxima Nova", sans-serif;
+    white-space: nowrap;
+    top: 180px;
+    left: 180px;
+    height: 88px;
+    width: 333px;
+    position: absolute;
+    z-index: 2;
 }
 
 .gram-jeszcze-1 {
-    /* background-image: url("../assets/gram_jeszcze_raz_button.png"); */
-     color: rgb(29, 56, 80);
+    /* background-image: url("../assets/gram_dalej1.png"); */
+    color: rgb(29, 56, 80);
     font-size: 60px;
     font-style: bold;
     font-weight: 700;
     font-family: "Proxima Nova", sans-serif;
     background-size: 583px 192px;
-    background-position: -1px -2px;
+    background-position: -1px -1px;
     position: absolute;
-    top: 650px;
-    left: 300px;
+    top: 750px;
+    left: 255px;
     width: 583px;
-    height: 192px;
+    height: 120px;
     z-index: 3;
-    border: 4px solid rgb(0, 187, 255);
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 25px;
 }
 
 .gram-jeszcze-1:hover {
@@ -120,21 +122,21 @@ color: rgb(255, 255, 255);
 }
 
 .zakoncz-gre {
-    /* background-image: url("../assets/zakoncz_gre_button.png"); */
-     color: rgb(29, 56, 80);
+ color: rgb(29, 56, 80);
     font-size: 60px;
     font-style: bold;
     font-weight: 700;
     font-family: "Proxima Nova", sans-serif;
     background-size: 583px 192px;
-    background-position: -1px -2px;
+    background-position: -1px -1px;
     position: absolute;
-    top: 650px;
-    left: 1020px;
+    top: 750px;
+    left: 960px;
     width: 583px;
-    height: 192px;
+    height: 120px;
     z-index: 3;
-    border: 4px solid rgb(0, 187, 255);
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 25px;
 }
 
 .zakoncz-gre:hover {

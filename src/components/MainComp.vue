@@ -8,6 +8,8 @@ import SceneMain1 from './SceneMain1.vue';
 import SceneMain2 from './SceneMain2.vue';
 import SceneLooseAfterLevelOne from './SceneLooseAfterLevelOne.vue';
 import SceneEndLevelOne from './SceneEndLevelOne.vue';
+import SceneWin from './SceneWin.vue';
+import SceneLoose from './SceneLoose.vue';
 
 
 const if_plansza_poczatkowa = ref(false)
@@ -18,6 +20,10 @@ const if_main1 = ref(false)
 const if_main2 = ref(true)
 const if_end_scene_level_one = ref(false)
 const if_loose_after_level_one = ref(false)
+const if_win = ref(true)
+const if_loose = ref(false)
+const ifWinFocusOn = ref(false)
+const ifLoseFocusOn = ref(false)
 
 
 
@@ -213,13 +219,35 @@ function graj_dalej_po_scenie1_focus() {
     }, 500)
 }
 
+function graj_jeszcze_raz() {
+    console.log('graj_jeszcze_raz')
+    if_loose.value = false;
+    if_win.value = false;
+    if_main1.value = false;
+    if_main2.value = false;
+    if_level_two_choise.value = true
+}
+
+function graj_jeszcze_raz_focus() {
+    ifLevelTwoChoiseFocusOn.value = true
+    setTimeout(() => {
+        console.log('graj_jeszcze_raz_focus')
+        if_loose.value = false;
+        if_win.value = false;
+        if_main1.value = false;
+        if_main2.value = false;
+        if_level_two_choise.value = true
+    }, 500)
+}
+
+
 
 function koniec_gry() {
     console.log('koniec_gry')
-    //if_loose.value = false;
-    //if_win.value = false;
+    if_loose.value = false;
+    if_win.value = false;
     if_main1.value = false;
-    //if_main2.value = false;
+    if_main2.value = false;
     if_level_two_choise.value = false;
     if_end_scene_level_one.value = false;
     if_loose_after_level_one.value = false;
@@ -249,8 +277,13 @@ function koniec_gry() {
             <SceneLooseAfterLevelOne v-if="if_loose_after_level_one" @jeszcze-raz="graj_jeszcze_raz_po_scenie1"
                 @jeszcze-raz-focus="graj_jeszcze_raz_po_scenie1_focus" @koniec-gry="koniec_gry"
                 :ifButtonOnFocus="ifInFocusGlobal" />
-             <SceneMain2 v-if="if_main2" @koniec-etap2="koniec_etapu1" @koniec-etap2-focus="koniec_etapu1_focus"
+            <SceneMain2 v-if="if_main2" @koniec-etap2="koniec_etapu1" @koniec-etap2-focus="koniec_etapu1_focus"
                 @przegrana2="loose" @przegrana2-focus="loose_focus" :ifButtonOnFocusMain2="ifMain2FocusOn" />
+            <SceneWin v-if="if_win" @jeszcze-raz="graj_jeszcze_raz" @koniec-gry="koniec_gry"
+                @jeszcze-raz-focus="graj_jeszcze_raz_focus" @koniec-gry-focus=""
+                :ifButtonOnFocusSceneWin="ifWinFocusOn" />
+            <SceneLoose v-if="if_loose" @jeszcze-raz="graj_jeszcze_raz" @koniec-gry="koniec_gry"
+                @jeszcze-raz-focus="graj_jeszcze_raz_focus" :ifButtonOnFocusSceneLose="ifLoseFocusOn" />
         </div>
     </main>
 </template>
