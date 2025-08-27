@@ -5,6 +5,7 @@ import SceneLevelOneChoise from './SceneLevelOneChoise.vue'
 import SceneLevelTwoChoise from './SceneLevelTwoChoise.vue';
 import SceneInstruction from './SceneInstruction.vue'
 import SceneMain1 from './SceneMain1.vue';
+import SceneMain2 from './SceneMain2.vue';
 import SceneLooseAfterLevelOne from './SceneLooseAfterLevelOne.vue';
 import SceneEndLevelOne from './SceneEndLevelOne.vue';
 
@@ -12,10 +13,12 @@ import SceneEndLevelOne from './SceneEndLevelOne.vue';
 const if_plansza_poczatkowa = ref(false)
 const if_instrukcja = ref(false)
 const if_level_one_choise = ref(false)
-const if_main1 = ref(true)
-const if_end_scene_level_one = ref(true)
-const if_loose_after_level_one = ref(false)
 const if_level_two_choise = ref(false)
+const if_main1 = ref(false)
+const if_main2 = ref(true)
+const if_end_scene_level_one = ref(false)
+const if_loose_after_level_one = ref(false)
+
 
 
 
@@ -23,6 +26,7 @@ const if_level_two_choise = ref(false)
 const ifInstructionFocusOn = ref(false)
 const ifLevelOneChoiseFocusOn = ref(false)
 const ifMain1FocusOn = ref(false)
+const ifMain2FocusOn = ref(false)
 const ifLevelTwoChoiseFocusOn = ref(false)
 //proba z focusem generalnym
 const ifInFocusGlobal = ref(false)
@@ -77,6 +81,25 @@ function change_level_one_choiseFocusOn() {
     }, 500)
 }
 
+function change_level_two_choise() {
+    console.log("wybrano poziom 2")
+    if_level_one_choise.value = false;
+    if_level_two_choise.value = false;
+    if_main1.value = false;
+    if_main2.value = true;
+}
+
+function change_level_two_choise_focus() {
+    ifMain2FocusOn.value = true
+    setTimeout(() => {
+        console.log("wybrano poziom 2 focus")
+        if_level_one_choise.value = false;
+        if_level_two_choise.value = false;
+        if_main1.value = false;
+        if_main2.value = true;
+    }, 500)
+}
+
 function koniec_etapu1() {
 
     ifInFocusGlobal.value = false
@@ -109,6 +132,25 @@ function koniec_etapu1_focus() {
             if_win.value = true;
         })
     }
+}
+
+function loose() {
+    ifLevelOneChoiseFocusOn.value = false
+    ifInFocusGlobal.value = false
+    ifMain1FocusOn.value = false
+    ifMain2FocusOn.value = false
+    if_loose.value = true;
+}
+
+function loose_focus() {
+    ifLoseFocusOn.value = true
+    ifLevelOneChoiseFocusOn.value = false
+    ifInFocusGlobal.value = false
+    ifMain1FocusOn.value = false
+    ifMain2FocusOn.value = false
+    setTimeout(() => {
+        if_loose.value = true;
+    }, 500)
 }
 
 function loose_after_level_one() {
@@ -194,6 +236,10 @@ function koniec_gry() {
             <SceneLevelOneChoise v-if="if_level_one_choise" @wybor-levelu1="change_level_one_choise"
                 @wybor-levelu1-focus="change_level_one_choiseFocusOn"
                 :ifButtonOnFocusLevelOne="ifLevelOneChoiseFocusOn" />
+            <SceneLevelTwoChoise v-if="if_level_two_choise" @wybor-levelu1="change_level_one_choise"
+                @wybor-levelu1-focus="change_level_one_choiseFocusOn" @wybor-levelu2="change_level_two_choise"
+                @wybor-levelu2-focus="change_level_two_choise_focus"
+                :ifButtonOnFocusLevelTwo="ifLevelTwoChoiseFocusOn" />
             <SceneMain1 v-if="if_main1" @koniec-etap1="koniec_etapu1" @koniec-etap1-focus="koniec_etapu1_focus"
                 @przegrana="loose_after_level_one" @przegrana-focus="loose_after_level_one_focus"
                 :ifButtonOnFocusMain1="ifMain1FocusOn" />
@@ -203,6 +249,8 @@ function koniec_gry() {
             <SceneLooseAfterLevelOne v-if="if_loose_after_level_one" @jeszcze-raz="graj_jeszcze_raz_po_scenie1"
                 @jeszcze-raz-focus="graj_jeszcze_raz_po_scenie1_focus" @koniec-gry="koniec_gry"
                 :ifButtonOnFocus="ifInFocusGlobal" />
+             <SceneMain2 v-if="if_main2" @koniec-etap2="koniec_etapu1" @koniec-etap2-focus="koniec_etapu1_focus"
+                @przegrana2="loose" @przegrana2-focus="loose_focus" :ifButtonOnFocusMain2="ifMain2FocusOn" />
         </div>
     </main>
 </template>

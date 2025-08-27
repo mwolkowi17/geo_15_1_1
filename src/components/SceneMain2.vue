@@ -25,15 +25,11 @@ const ifRzucKostkaButtonOnFocus = ref(false)
 const ifFocusEmitGlobal = ref(false)
 
 //referencje do el html używane do obsługi focusa
-const button_rzut = useTemplateRef('rzut2')
-const napisRuch = useTemplateRef('ruchGracza2')
+const button_rzut = useTemplateRef('rzut1')
+const napisRuch = useTemplateRef('ruchGracza')
 
 onMounted(() => {
-    // const elementToFocus = document.querySelector(".rzut2")
-    // if (elementToFocus && props.ifButtonOnFocusMain2 === true) {
-    //     elementToFocus.focus();
-    // }
-
+   
     if(props.ifButtonOnFocusMain2===true){
         button_rzut.value.focus()
     }
@@ -96,8 +92,8 @@ const isSet5 = ref(kolekcja_widoków_kostki[4])
 const isSet6 = ref(kolekcja_widoków_kostki[5])
 
 //pozycja pionka
-const pionek_left = ref(30)
-const pionek_top = ref(330)
+const pionek_top = ref(205);
+const pionek_left = ref(110);
 
 const mapa_pozycji_pionka = new PawnMaps()
 
@@ -444,46 +440,52 @@ function clickWithMouse() {
 }
 </script>
 <template>
-     <h1 class="sr-only">Gra planszowa - poziom 2</h1>
-    <div class="tlo_main2" role="img" aria-label="gra planszowa - poziom 2"></div>
-     <div class="ikona-start" role="img" alt="ikona" aria-label="miejsce startu gry"></div>
-    <div class="trasa" role="img" alt="grafika" aria-label="trasa gry zawierająca 16 pól"></div>
-    <div class="ikona-meta" role="img" alt="ikona" aria-label="miejsce mety gry"></div>
-    <div class="pionek1" :style="{ left: pionek_left + 'px', top: pionek_top + 'px' }" role="img" alt="pionek"
-        aria-label="Pionek"></div>
-    <h2 class="szanse-napis">szanse:</h2>
-    <div class="szansa1 szansa_ksztalt1" v-if="if_szansa1" role="img" alt="gwiazdka ikona szansy" aria-label="Szansa 1">
-    </div>
-    <div class="szansa2 szansa_ksztalt1" v-if="if_szansa2" role="img" alt="gwiazdka ikona szansy" aria-label="Szansa 2">
-    </div>
-    <div class="szansa3 szansa_ksztalt1" v-if="if_szansa3" role="img" alt="gwiazdka ikona szansy" aria-label="Szansa 3">
-    </div>
-    <div class="szansa4 szansa_ksztalt1" v-if="if_szansa4" role="img" alt="gwiazdka ikona szansy" aria-label="Szansa 4">
-    </div>
-     <div class="ruch2" ref="ruchGracza2" v-if="if_ruch_gracza" tabindex="0">
-        <p class="ruch-text">Ruch gracza</p>
-    </div>
-    <button class="rzut2 my-button anim1" ref="rzut2" v-if="if_rzuc_kostka" @click="clickWithMouse" @keydown.enter="clickWithFocus"
-        role="button">Rzuć kostką</button>
-    <div class="kostka1" :class="{
-        'kostka1image1': isSet1,
-        'kostka1image2': isSet2,
-        'kostka1image3': isSet3,
-        'kostka1image4': isSet4,
-        'kostka1image5': isSet5,
-        'kostka1image6': isSet6
-    }" v-if="if_widok_kostki" role="img" alt="kostka do gry" :aria-label=wyrzuconaWartoscKostki></div>
+    
+    <div class="tlo2" role="img" aria-label="gra planszowa - poziom1">
+        <h1 class="sr-only">Gra planszowa - poziom 2</h1>
+        <div class="ikona-start" role="img" alt="">
+            <h2 class="start">Start</h2>
+        </div>
+        <div class="trasa" role="img" alt="grafika" aria-label="trasa gry zawierająca 16 pól"></div>
+        <div class="ikona-meta" role="img" alt="">
+            <h2 class="meta">Meta</h2>
+        </div>
+        <div class="pionek1" :style="{ left: pionek_left + 'px', top: pionek_top + 'px' }" role="img" alt="ikona"
+            aria-label="Pionek"></div>
+        <h2 class="title">Poziom 2</h2>
+        <h2 class="szanse-napis">szanse:</h2>
+        <div class="szanse-container">
+            <img class="szansa" v-if="if_szansa1" src="../assets/szansa.png">
+            <img class="szansa" v-if="if_szansa2" src="../assets/szansa.png">
+            <img class="szansa" v-if="if_szansa3" src="../assets/szansa.png">
+            <img class="szansa" v-if="if_szansa4" src="../assets/szansa.png">
+        </div>
+        <div class="ruch1" ref="ruchGracza" v-if="if_ruch_gracza" tabindex="0">
+            <p class="ruch-text">Ruch gracza</p>
+        </div>
+        <button  class="rzut1 my-button anim1" ref="rzut1" v-if="if_rzuc_kostka" @click="clickWithMouse"
+            @keydown.enter="clickWithFocus" role="button">Rzuć kostką</button>
+        <div class="kostka" :class="{
+            'kostka1image1': isSet1,
+            'kostka1image2': isSet2,
+            'kostka1image3': isSet3,
+            'kostka1image4': isSet4,
+            'kostka1image5': isSet5,
+            'kostka1image6': isSet6
+        }" v-if="if_widok_kostki" role="img" alt="ikona widoku kostki" :aria-label=wyrzuconaWartoscKostki></div>
+        </div>
     <SceneTrap v-if="if_widok_pulapki" @koniec-pulapka="if_widok_pulapki = false, koniecPulapki()"
-        @koniec-pulapka-focus="if_widok_pulapki = false; koniecPulapkiFocusOn()" rel="preload"
-        :ifButtonOnFocusTrap="ifTrapFocusOn" />
-    <SceneQuizz2 v-if="if_widok_quizz2" @koniec-quizz="if_widok_quizz2 = false, koniecQuizu()"
+            @koniec-pulapka-focus="if_widok_pulapki = false, koniecPulapkiFocusOn()"
+            :ifButtonOnFocusTrap="ifTrapFocusOn" />
+     <SceneQuizz2 v-if="if_widok_quizz2" @koniec-quizz="if_widok_quizz2 = false, koniecQuizu()"
         @koniec-quizz-focus="if_widok_quizz2 = false, koniecQuizuFocusOn()" @odejmij-szanse="odejmijSzanse" msg="Hej"
         :miejsceNaPlanszy="krok_gracz1_na_planszy" :ifButtonOnFocusQuizz2="ifQuizzFocusOn2" rel="preload" />
+   
 </template>
 
 <style scoped>
-.tlo_main2 {
-    background-image: url("../assets/8_plansza_poziom2.png");
+.tlo2 {
+    background-image: url("../assets/Plansza_poziom2.png");
     background-size: 1920px 1080px;
     height: 1080px;
     width: 1920px;
@@ -492,118 +494,95 @@ function clickWithMouse() {
     position: absolute;
 }
 
-.ikona-start {
-    background-image: url("../assets/start_poziom2.png");
-    background-size: 255px 305px;
-    background-repeat: no-repeat;
+.sr-only {
     position: absolute;
-    height: 305px;
-    width: 255px;
-    top: -18px;
-    left: 23px;
-    z-index: 0;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
-
-
-.sr-only{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.trasa{
-    background-image: url("../assets/sama_plansza.png");
-    background-size: 1280px 799px;
-    background-repeat: no-repeat;
-    position: absolute;
-    height: 799px;
-    width: 1280px;
-    top: 155px;
-    left: 0px;
-    z-index: 0;
-}
-
-.ikona-meta{
-    background-image: url("../assets/meta_poziom2.png");
-    background-size: 267px 288px;
-    background-repeat: no-repeat;
-    position: absolute;
-    height: 288px;
-    width: 267px;
-    top: 482px;
-    left: 1133px;
-    z-index: 0;
-}
-
 
 .pionek1 {
-    background-image: url("../assets/pionek1.png");
+    background-image: url("../assets/pionek.png");
     background-size: 116px 116px;
     background-repeat: no-repeat;
     height: 116px;
     width: 116px;
     position: absolute;
-
 }
 
-.szanse-napis {
-    color: rgb(29, 56, 80);
-    font-size: 45px;
-    font-style: bold;
-    font-weight: 600;
-    font-family: "Proxima Nova", sans-serif;
-
-    top: 255px;
-    left: 1465px;
-    height: 88px;
-    width: 333px;
-    position: absolute;
-    z-index: 2;
-}
-
-.kostka1 {
-
-    background-size: 250px 250px;
+.ikona-start {
+    background-image: url("../assets/strzalka_START.png");
+    background-size: 240px 104px;
     background-repeat: no-repeat;
-    left: 1549px;
-    top: 687px;
-    height: 250px;
-    width: 250px;
     position: absolute;
-    z-index: 2;
+    height: 104px;
+    width: 240px;
+    top: 40px;
+    left: 45px;
+    z-index: 0;
 }
 
-.kostka1image1 {
-    background-image: url("../assets/kostka_1oczko.png");
+.start {
+    position: relative;
+    font-size: 2.2em;
+    font-style: bold;
+    font-weight: 700;
+    font-family: "Proxima Nova", sans-serif;
+    text-align: center;
 }
 
-.kostka1image2 {
-    background-image: url("../assets/kostka_2oczka.png");
+.meta {
+    position: relative;
+    font-size: 2.2em;
+    font-style: bold;
+    font-weight: 700;
+    font-family: "Proxima Nova", sans-serif;
+    text-align: center;
 }
 
-.kostka1image3 {
-    background-image: url("../assets/kostka_3oczka.png");
+.trasa {
+    background-image: url("../assets/PLANSZA.png");
+    background-size: 1215px 760px;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 799px;
+    width: 1280px;
+    top: 185px;
+    left: 90px;
+    z-index: 0;
 }
 
-.kostka1image4 {
-    background-image: url("../assets/kostka_4oczka.png");
+.ikona-meta {
+    background-image: url("../assets/flaga_META.png");
+    background-size: 162px 188px;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 188px;
+    width: 162px;
+    top: 602px;
+    left: 1210px;
+    z-index: 0;
 }
 
-.kostka1image5 {
-    background-image: url("../assets/kostka_5oczek.png");
+.title {
+    font-size: 4.3em;
+    font-style: bold;
+    font-weight: 700;
+    font-family: "Proxima Nova", sans-serif;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: rgb(29, 56, 80);
+    position: absolute;
+    top: 15px;
+    left: 1530px
 }
 
-.kostka1image6 {
-    background-image: url("../assets/kostka_6oczek.png");
-}
-
-.ruch2 {
+.ruch1 {
     color: rgb(29, 56, 80);
     font-size: 40px;
     font-style: bold;
@@ -621,8 +600,8 @@ function clickWithMouse() {
     text-align: center;
 }
 
-.ruch2:focus {
-    outline: 5px solid #9a009e;
+.ruch1:focus {
+    outline: 5px solid #e90808;
 }
 
 .ruch-text {
@@ -631,81 +610,88 @@ function clickWithMouse() {
     margin-left: 1.35em;
 }
 
-.rzut2 {
-    color: rgb(255, 255, 255);
-    font-size: 40px;
+.szanse-napis {
+    font-size: 3.3em;
     font-style: bold;
     font-weight: 700;
     font-family: "Proxima Nova", sans-serif;
-    background-image: url("../assets/rzut_przycisk.png");
-    background-size: 333px 86px;
-    background-repeat: no-repeat;
-    top: 560px;
-    left: 1502px;
-    height: 88px;
-    width: 333px;
+    color: rgb(29, 56, 80);
     position: absolute;
+    top: 160px;
+    left: 1460px;
+}
+
+.szanse-container {
+    margin-bottom: 0em;
+    position: absolute;
+    left: 1447px;
+    top: 300px;
+}
+
+.szansa {
+    margin-left: .7em;
+    margin-right: .7em;
+}
+
+.rzut1 {
+    font-size: 3.3em;
+    font-style: bold;
+    font-weight: 700;
+    font-family: "Proxima Nova", sans-serif;
+    color: white;
+    margin-top: 50px;
+    width: 7em;
+    height: 2em;
+    border: 4px solid rgb(0, 0, 0);
+    overflow: visible;
+    background-color: rgb(29, 56, 80);
+    border-radius: 30px;
+    margin-bottom: 0.3em;
+    position: absolute;
+    top: 500px;
+    left: 1487px;
     z-index: 2;
 }
 
-.rzut2:hover {
-    cursor: pointer;
+.rzut1:focus{
+     outline: 5px solid #e90808;
 }
 
-.rzut2:focus {
-    /* outline: thick double #08e926; */
-    outline: 5px solid #9a009e;
-}
-
-.szansa_ksztalt1 {
-    background-image: url("../assets/zycie1.png");
-    background-size: 72px 72px;
-    background-repeat: no-repeat;
-
-    height: 72px;
-    width: 72px;
+.kostka {
     position: absolute;
+    top: 710px;
+    left: 1576px;
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
     z-index: 2;
+
 }
 
-.szansa1 {
-    top: 387px;
-    left: 1490px;
+.kostka1image1 {
+    background-image: url("../assets/kostka_1oczko.png");
+
 }
 
-.szansa2 {
-    top: 387px;
-    left: 1590px;
+.kostka1image2 {
+    background-image: url("../assets/kostka_2oczka.png");
+
 }
 
-.szansa3 {
-    top: 387px;
-    left: 1690px;
+.kostka1image3 {
+    background-image: url("../assets/kostka_3oczka.png");
 }
 
-.szansa4 {
-    top: 387px;
-    left: 1790px;
+.kostka1image4 {
+    background-image: url("../assets/kostka_4oczka.png");
 }
 
-/* The animation code */
-@keyframes example {
-
-    /* from {background-color: red;}
-  to {background-color: yellow;} */
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 100;
-    }
+.kostka1image5 {
+    background-image: url("../assets/kostka_5oczek.png");
 }
 
-/*anim1* The element to apply the animation to */
-.anim1 {
-
-    animation-name: example;
-    animation-duration: 1s;
+.kostka1image6 {
+    background-image: url("../assets/kostka_6oczek.png");
 }
 </style>
