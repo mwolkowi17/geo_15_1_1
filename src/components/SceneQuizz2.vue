@@ -427,7 +427,9 @@ li {
   width: 81px;
   /* width: 1rem; */
   margin-right: 1rem;
+   box-sizing: border-box;
   /* position: absolute; */
+  flex: 0 0 auto
 
 }
 
