@@ -398,6 +398,7 @@ ul {
   margin-block-start: 1em;
   margin-block-end: 1em;
   padding-inline-start: 0px !important;
+  margin-left: -50px;
 }
 
 li {
@@ -431,7 +432,9 @@ li {
   width: 81px;
   /* width: 1rem; */
   margin-right: 1rem;
+   box-sizing: border-box;
   /* position: absolute; */
+  flex: 0 0 auto
 
 }
 
@@ -480,8 +483,9 @@ li {
   font-style: bold;
   font-weight: 700;
   font-family: "Proxima Nova", sans-serif;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   /* position: absolute; */
+ 
 
 }
 
