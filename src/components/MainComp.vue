@@ -10,6 +10,8 @@ import SceneLooseAfterLevelOne from './SceneLooseAfterLevelOne.vue';
 import SceneEndLevelOne from './SceneEndLevelOne.vue';
 import SceneWin from './SceneWin.vue';
 import SceneLoose from './SceneLoose.vue';
+import { images } from '../lib/image-list';
+import { preloadImages } from '../lib/preloader';
 
 
 const if_plansza_poczatkowa = ref(true)
@@ -254,6 +256,15 @@ function koniec_gry() {
     if_loose_after_level_one.value = false;
     if_plansza_poczatkowa.value = true;
 }
+
+// preload images
+const newImages = ref([])
+
+onMounted(async () => {
+    await preloadImages(images)
+
+    newImages.value = images
+})
 </script>
 
 <template>
