@@ -1,15 +1,17 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, useTemplateRef } from 'vue';
 defineEmits(['wybor-levelu1', 'wybor-levelu1-focus', 'wybor-levelu2', 'wybor-levelu2-focus']);
 
 const props = defineProps({
     ifButtonOnFocusLevelTwo: Boolean
 });
 
+const buttonFocus = useTemplateRef('button-focus')
+
 onMounted(() => {
-    const elementToFocus = document.querySelector(".level-one-button")
-    if (elementToFocus && props.ifButtonOnFocusLevelTwo === true) {
-        elementToFocus.focus();
+    //const elementToFocus = document.querySelector(".level-one-button")
+    if (props.ifButtonOnFocusLevelTwo === true) {
+       buttonFocus.value.focus()
     }
 
 })
@@ -19,7 +21,7 @@ onMounted(() => {
     <div class="tlo-level2" role="img" alt="tło" aria-label="plansza wyboru poziomu">
         <h1 class="sr-only">Wybór poziomu</h1>
         <h2 class="title">Poziom trudności</h2>
-        <button class="level-button latwy my-button" @click="$emit('wybor-levelu1')"
+        <button class="level-button latwy my-button" ref="button-focus" @click="$emit('wybor-levelu1')"
             @keydown.enter="$emit('wybor-levelu1-focus')" role="button" aria-label="wybierz poziom jeden">Poziom
             1</button>
         <button class="level-button trudny my-button" @click="$emit('wybor-levelu2')"
