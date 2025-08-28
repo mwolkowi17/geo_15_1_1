@@ -33,22 +33,22 @@ przegrana_sound.play();
 
 <style scoped>
 .plansza-lose {
-    background-image: url("../assets/przegrana_plansza.png");
-    background-size: 1920px 1080px;
-    height: 1080px;
-    width: 1920px;
-    top: 0px;
-    left: 0px;
+      background-image: url("../assets/plansza_przegrales.png");
+    background-size: 1568px 912px;
+    height: 912px;
+    width: 1568px;
+    top: 100px;
+    left: 120px;
     position: absolute;
     z-index: 2;
 }
 
 .info-end2{
-    position: absolute;
+   position: absolute;
     height: 400px;
     width: 1200px;
-    top: 200px;
-    left:350px
+    top: 150px;
+    left: 185px
 }
 
 .info-end2:focus{
@@ -95,12 +95,13 @@ przegrana_sound.play();
     background-size: 583px 192px;
     background-position: -1px -2px;
     position: absolute;
-    top: 650px;
-    left: 300px;
+    top: 740px;
+    left: 255px;
     width: 583px;
-    height: 192px;
+    height: 120px;
     z-index: 3;
-    border: 4px solid rgb(0, 187, 255);
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 25px;
 }
 
 .gram-jeszcze-1:hover {
@@ -114,7 +115,7 @@ przegrana_sound.play();
 
 .zakoncz-gre {
     /* background-image: url("../assets/zakoncz_gre_button.png"); */
-    color: rgb(29, 56, 80);
+       color: rgb(29, 56, 80);
     font-size: 60px;
     font-style: bold;
     font-weight: 700;
@@ -122,12 +123,13 @@ przegrana_sound.play();
     background-size: 583px 192px;
     background-position: -1px -2px;
     position: absolute;
-    top: 650px;
-    left: 1020px;
-    width: 583px;
-    height: 192px;
+    top: 740px;
+    left: 970px;
+   width: 583px;
+    height: 120px;
     z-index: 3;
-    border: 4px solid rgb(0, 187, 255);
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 25px;
 }
 
 .zakoncz-gre:hover {

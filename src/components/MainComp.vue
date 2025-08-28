@@ -20,10 +20,9 @@ const if_main1 = ref(false)
 const if_main2 = ref(true)
 const if_end_scene_level_one = ref(false)
 const if_loose_after_level_one = ref(false)
-const if_win = ref(true)
-const if_loose = ref(false)
-const ifWinFocusOn = ref(false)
-const ifLoseFocusOn = ref(false)
+const if_win = ref(false)
+const if_loose = ref(true)
+
 
 
 
@@ -34,6 +33,8 @@ const ifLevelOneChoiseFocusOn = ref(false)
 const ifMain1FocusOn = ref(false)
 const ifMain2FocusOn = ref(false)
 const ifLevelTwoChoiseFocusOn = ref(false)
+const ifWinFocusOn = ref(false)
+const ifLoseFocusOn = ref(false)
 //proba z focusem generalnym
 const ifInFocusGlobal = ref(false)
 
@@ -66,11 +67,11 @@ function changeInstrukcjaFocusOn() {
 
 function change_level_one_choise() {
     console.log("wybrano level 1")
-    // if_end_scene_level_one.value = false;
-    // if_loose_after_level_one.value = false
+    if_end_scene_level_one.value = false;
+    if_loose_after_level_one.value = false
     if_level_one_choise.value = false;
-    //if_level_two_choise.value = false;
-    //if_main2.value = false
+    if_level_two_choise.value = false;
+    if_main2.value = false
     if_main1.value = true;
 }
 
@@ -78,11 +79,11 @@ function change_level_one_choiseFocusOn() {
     ifMain1FocusOn.value = true
     setTimeout(() => {
         console.log("wybrano level 1 focus")
-        // if_end_scene_level_one.value = false;
-        // if_loose_after_level_one.value = false
+        if_end_scene_level_one.value = false;
+        if_loose_after_level_one.value = false
         if_level_one_choise.value = false;
-        //if_level_two_choise.value = false;
-        //if_main2.value = false
+        if_level_two_choise.value = false;
+        if_main2.value = false
         if_main1.value = true;
     }, 500)
 }
